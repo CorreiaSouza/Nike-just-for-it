@@ -1,23 +1,21 @@
-let botoesTenis = document.querySelectorAll(".botaoTenis")
-let slides = document.querySelectorAll(".slide")
-let slider = document.querySelector(".slider")
-
-let coresBg = ["vermelo", "cinza", "verde", "marrom"]
+const botoesTenis = document.querySelectorAll(".botaoTenis");
+const slides = document.querySelectorAll(".slide");
+const coresBg = ["vermelho", "cinza", "verde", "marrom"];
 
 botoesTenis.forEach((botao, index) => {
-    botao.onclick = () => {
-        let slideAtivo = document.querySelector(".slide.active")
-        slideAtivo.classList.remove("active")
-        slides[index].classList.add("active")
+    botao.addEventListener("click", () => {
+        // Remove a classe active do slide e botão atual
+        document.querySelector(".slide.active")?.classList.remove("active");
+        document.querySelector(".botaoTenis.active")?.classList.remove("active");
 
-        let botaoTenisAtivo = document.querySelector(".botaoTenis.active")
-        botaoTenisAtivo.classList.remove("active")
-        botoesTenis[index].classList.add("active")
+        // Ativa o slide e botão clicado
+        slides[index].classList.add("active");
+        botao.classList.add("active");
 
-        coresBg.forEach(cor => {
-            slider.classList.remove(cor)
-        })
+        // Limpa as cores de todos os slides
+        slides.forEach(slide => coresBg.forEach(cor => slide.classList.remove(cor)));
 
-        slider.classList.add(coresBg[index])
-    }
-})
+        // Adiciona a cor correta no slide ativo
+        slides[index].classList.add(coresBg[index]);
+    });
+});
