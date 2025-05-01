@@ -5,42 +5,33 @@
     color: var(--white);
 }
 
-:root {
-    --white: rgba(255, 255, 255, 0.8);
-    --black: rgba(0, 0, 0, 0.8);
+:root{
+    --white: rgba(255, 255, 255, 0.9);
+    --black: rgba(0, 0, 0, 0.81);
+
+
 }
+
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+
 body {
-    background-color: none;
-    outline: none;
-    padding: 14px 30px;
-    border-radius: 30px;
-    font-size: 30px;
+    background-color: #808080;
+    overflow-x: hidden;
     font-family: 'Montserrat', sans-serif;
-    cursor: pointer;
 }
 
-button {
+button{
     border: none;
     outline: none;
-    padding: 14px 30px;
+    padding: 14px 28px;
     border-radius: 30px;
     font-size: 16px;
     font-family: 'Montserrat', sans-serif;
-    cursor: pointer;
 }
 
-button:hover {
-    box-shadow: 0 0 5px var(--white), 0 0 10px var(--white), 0 0 15px var(--white), 0 0 20px var(--white), 0 0 30px var(--white);
-    transform: scale(1.1);
-    transition: 0.3s;
-}
 
-button:active {
-    opacity: .6;
-}
 
 .container {
     width: 100%;
@@ -55,146 +46,79 @@ header {
     align-items: center;
     padding: 40px 4%;
     position: absolute;
-    z-index: 999;
-}
 
-header div, header nav {
+    header div,
+    header nav {
     flex: 1;
+    }
+
+
+    ul{
+       display: flex;
+       gap: 36px; 
+
+       li{
+        list-style-type: none;
+    }
+
+     a {
+        text-decoration: none;
+      }
+    }
+
+    .divButtons{
+        display: flex;
+        justify-content: end;
+        gap: 32px;
+
+        .primario{
+            color: var(--black);
+        }
+
+        .secundario{
+            background-color: rgb(255, 255, 255, 0.079);
+            color: var(--white);
+            border: 1px solid var(--white);
+        }
+    }
+
+    
+      
 }
 
-header ul {
-    display: flex;
-    gap: 36px;
-}
-
-header ul li {
-    list-style-type: none;
-    cursor: pointer;
-}
-
-header ul li:hover {
-    text-shadow: 0 0 5px var(--white), 0 0 10px var(--white), 0 0 20px var(--white), 0 0 30px var(--white);
-}
-
-header ul li:active {
-    opacity: .6;
-}
-
-header .divButtons {
-    display: flex;
-    justify-content: end;
-    gap: 32px;
-}
-
-header .divButtons .primario {
-    color: var(--black);
-}
-
-header .divButtons .secundario {
-    color: var(--white);
-    background-color: rgba(255, 255, 255, 0.08);
-    border: 1px solid var(--white);
-}
-
-header .logo {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-header .logo img {
-    width: 50px;
-    height: auto;
-}
-
-header .logo h1 {
-    font-size: 32px;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.slide {
-    width: 100%;
-    height: 100vh;
-    position: relative;
-}
-
-.slide.vermelho {
-    background-color: #0E0000;
-}
-
-.slide.cinza {
-    background-color: #141414;
-}
-
-.slide.verde {
-    background-color: #0E2514;
-}
-
-.slide.marrom {
-    background-color: #1D1510;
-}
-
-.slide .slide {
+.slider .slide {
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+  }
+  
+  .slider .slide .nike {
     position: absolute;
-}
-
-.slide .slide .nike {
-    position: absolute;
-}
-
-.slide .slide .nike h3 {
+  }
+  
+  .slider .slide .nike h3 {
     font-size: 26vw;
-    transition: all 1.5s cubic-bezier(1, -0.01, 0.18, 1);
-}
+  }
 
-.slide .slide .nike h3:nth-child(1) {
-    color: rgba(255, 255, 255, 0.303);
-    transform: translateY(200%);
-}
-
-.slide .slide .nike h3:nth-child(2) {
+  h3:nth-child(1){
+   color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .slider .slide .nike h3:nth-child(2) {
     position: absolute;
     top: 0;
     color: transparent;
-    -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.303);
-    transform: translateY(-200%);
-}
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.303);
+  }
 
-.slide .slide .tenis {
+  .slider .slide .tenis{
     position: relative;
-    transform: translate(-200%, 100%) rotate(200deg);
-    transition: all 1.5s cubic-bezier(1, -0.01, 0.18, 1);
-}
+  }
 
-.slide .slide.active .tenis {
-    transform: translate(0);
-}
-
-.slide .slide.active .nike h3 {
-    transform: translate(0);
-}
-
-.slide::before {
-    content: "";
-    position: absolute;
-    width: 528px;
-    height: 528px;
-    background-color: rgba(255, 255, 255, 0.303);
-    border-radius: 50%;
-    top: -150%;
-    left: 50%;
-    transform: translate(-50%);
-    filter: blur(400px);
-    mix-blend-mode: color-dodge;
-}
-
-.rodape {
+  .rodape{
     width: 100%;
     position: absolute;
     bottom: 40px;
@@ -202,64 +126,54 @@ header .logo h1 {
     align-items: end;
     justify-content: space-between;
     padding: 0 4%;
-}
 
-.rodape .esquerda img {
-    mix-blend-mode: color-dodge;
-    opacity: .6;
-}
+  }
 
-.rodape .esquerda h2 {
-    font-size: 32px;
-    font-style: italic;
-    font-weight: 400;
-}
+  .rodape .esquerda{
+    h2{
+        font-size: 32px;
+        font-style: italic;
+        font-weight: 400;
 
-.rodape .esquerda h2 small {
-    font-size: 20px;
-}
+        small{
+            font-size: 20px;
+        }
+    }
+  }
 
-.rodape .direita {
+  .rodape .direita{
     display: flex;
     gap: 20px;
-}
 
-.rodape .botaoTenis {
+   .botaoTenis{
     position: relative;
-    transition: all 1.5s cubic-bezier(1, -0.01, 0.18, 1);
-    cursor: pointer;
-}
 
-.rodape .botaoTenis img {
-    width: 80px;
-    transform: rotate(20deg);
-    transition: all 1s cubic-bezier(1, -0.01, 0.18, 1);
-    filter: saturate(0);
-}
+    img{
+        width: 80px;
+        transform: rotate(20deg);
+    }
+   }
 
-.rodape .botaoTenis::before {
-    content: "";
-    width: 60px;
-    height: 60px;
-    background-color: rgba(255, 255, 255, 0.11);
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: all 1.5s cubic-bezier(1, -0.01, 0.18, 1);
-}
+    .botaoTenis::before{
+        content: "";
+        width: 60px;
+        height: 60px;
+        background-color: white;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transition: translate(-50%, -50%);
+    }
 
-.rodape .botaoTenis.active img {
-    width: 113px;
-    transform: rotate(0);
-    filter: saturate(1);
-}
+    .rodape.botaoTenis.active img{
+        width: 113px;
+        transform: rotate(0);
+    }
 
-.rodape .botaoTenis.active::before {
-    background-color: rgba(255, 255, 255, 0);
-}
-
-.rodape .botaoTenis:hover img {
-    transform: translateY(-10px);
-}
+    .rodape.botaoTenis.active::before{
+        background-color: rgba(255, 255, 255, 0);
+    }
+      
+  }
+  
